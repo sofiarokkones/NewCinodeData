@@ -48,6 +48,7 @@ namespace BuildPmoList
                     using (var writer = new StreamWriter(mem))
                     using (var csvWriter = new CsvHelper.CsvWriter(writer, System.Globalization.CultureInfo.CurrentCulture))
                     {
+
                         csvWriter.Configuration.Delimiter = ";";
 
                         csvWriter.WriteField("Email");
@@ -134,9 +135,8 @@ namespace BuildPmoList
                         //------------------------------------------------------
                     }
                 }
-
             }
-
         }
+
     }
 }

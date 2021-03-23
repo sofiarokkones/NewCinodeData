@@ -25,8 +25,23 @@
 
             // --------------------------------------------------------------------------------------------------------------------
 
-            BuildList list = new BuildList();
-            await list.BuildPMOList(accessId, accessSecret, placeToSaveResult, today, untilDate);
+             BuildList list = new BuildList();
+             await list.BuildPMOList(accessId, accessSecret, placeToSaveResult, today, untilDate);
+
+
+
+            // GENERATE SKILL LIST ---------------------
+            // Places where to get already created lists
+            var skillListConsultants = placeToSaveResult;
+
+            // This csv are for now needed to collect manually from Cinode --> Export all competences and save to this place!
+            var totalSkillListCinode = @"<Place where a csv with all skills from Cinode are saved>";
+
+            // Place where to save the skill list result
+            var placeToSaveSkillListResult = @"<Where to save your resulting skill list>.csv";
+
+            CreateCompetenceList competenceList = new CreateCompetenceList();
+            competenceList.GenerateList(skillListConsultants, totalSkillListCinode, placeToSaveSkillListResult);
         }
     }
 
